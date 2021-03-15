@@ -1,5 +1,7 @@
 <h1>Welcome#index</h1>
-<% @response.each do |name| %>
-  <%= name  %><br>
+<% @responses['results'].each do |pokemon| %>
+  <%= link_to (pokemon['name']), welcome_path(pokemon[:id]) %><br>
 <% end %>
 
+<%= link_to 'Next', @responses['next']  %><br>
+<%= link_to 'Previous', @responses['previous'] %><br>

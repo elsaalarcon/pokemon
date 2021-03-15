@@ -1,7 +1,12 @@
 class WelcomeController < ApplicationController
-  require 'will_paginate/array'
+
+  require './app/models/game.rb'
+
   def index
-    response = HTTParty.get('https://pokeapi.co/api/v2/pokemon/150')
-    @response = response["moves"].collect { |move| move['move']["name"] }
+    @responses = Game.new.client_choose(params[:offset], params[:limit])
+  end
+
+  def show
+    @pokemon = params[:id]
   end
 end
