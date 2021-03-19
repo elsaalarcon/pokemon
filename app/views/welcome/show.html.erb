@@ -1,1 +1,21 @@
-https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png
+<%= @pokemon['types'][0] %>
+  
+          
+            <% @pokemon['types'].each do |type| %>
+                <%= type %>
+            <% end %>
+            <%= @pokemon[:num] %>
+          <img src="<%= @pokemon[:sprite] %>">
+
+        <%= @pokemon['height'] %>
+        <%= @pokemon['weight'] %>
+          Abilities
+          <%= @pokemon['abils'] %>
+          Held Items
+          <%= @pokemon['items'] %>
+
+      <%= link_to welcome_path(:id => (params[:id].to_i - 1).to_s) %>
+      <%= link_to root_path %>
+      <%= link_to welcome_path(:id => (params[:id].to_i + 1).to_s) %>
+
+      <h1>Name: <%= @pokemon['name'] %></h1>

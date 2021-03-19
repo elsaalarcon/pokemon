@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    @pokemon = params[:id]
+    #@pokemon = params[:id]
+     @pokemon = Game.new.get_pokemon(params[:id])
   end
 end
